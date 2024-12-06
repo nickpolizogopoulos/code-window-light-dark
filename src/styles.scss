@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    transition: all .1s ease-in-out;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$blur: blur(14px);
+$font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+"Segoe UI Symbol";
+
+%flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: $font;
+    background-image: url('../public/leaves.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 30px 200px;
+    @media screen and (max-width: 1300px) {
+        margin: 30px 50px;
+    }
+    @media screen and (max-width: 440px) {
+        margin: 30px 10px;
+    }
+}
+
+button {
+    @extend %flex-row-center;
+    gap: 7px;
+    border-radius: 7px;
+    padding: 7px 21px;
+    backdrop-filter: $blur;
+    -webkit-backdrop-filter:  $blur;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 200px;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+}
+
+a {
+    @extend %flex-row-center;
+    gap: 10px;
+    padding: 7px 21px;
+    border-radius: 7px;
+    cursor: crosshair;
+    text-decoration: none;
+    &:hover {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }   
+}

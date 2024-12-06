@@ -1,0 +1,95 @@
+<section class="topbar">
+    <ul>
+        <li class="window-btn red-btn"></li>
+        <li class="window-btn yellow-btn"></li>
+        <li class="window-btn green-btn"></li>
+    </ul>
+    @if ( !switch() ) {
+        <svg (click)="onToggle()" class="toggle-icon" width="26" height="26" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/>
+        </svg>
+    }
+    <!-- *TOGGLE ON  -->
+    @else {
+        <svg (click)="onToggle()" class="toggle-icon" width="26" height="26" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+        </svg>
+    }
+</section>
+
+<!-- *CODE AREA  -->
+<section>
+    <!-- *COLUMN OF NUMBERS -->
+    <div class="window-details numbers-slashes">
+        <div>1 2 3 4 5 6 7 8 9 10 11 
+            <span>12 13 14
+
+                @if (isDisabled()) { <span>15 16</span> }
+                @else { <span>15 16</span> }
+
+            </span>
+        </div>
+    </div>
+
+    <!-- *COLUMN OF COMMENTED CODE SLASHES  -->
+    @if (true) {
+        <div class="ms-1 window-details numbers-slashes d-none d-sm-block">
+            <div class="col ms-1 mb-4 comment-grey">// // // // // // // // // // // 
+                <span class="d-xl-block d-xxl-none d-md-none d-lg-block">// // //
+
+                    @if (true) { <span class="d-sm-block d-lg-block">// //</span> }
+                    @else { <span class="d-xl-none d-sm-block d-lg-block">// //</span> }
+
+                </span>
+            </div> 
+        </div>
+    }
+
+    <!-- *CODE -->
+    <section>
+        <!-- *CODE ON -->
+        @if (true) {
+            <div style="margin-left: 17px;">
+                <div><i class="light-blue">const </i>me<span class="pink">:</span><span class="green"> Developer</span> <span class="pink"> = </span> <span class="yellow">{{'{'}}</span></div>
+                <div class="border-left window-details">
+                    <div class="ms-4 code-font-default">
+                        <div><span class="default">name</span>: '<span class="yellow">Nick Polizogopoulos</span>',</div>
+                        <div><span class="green">age</span>:<span class="purple"> ()</span><span class="pink"> => new </span><span class="green">Date</span><span class="purple">()</span>.<span class="green">getFullYear</span><span class="purple">()</span><span class="pink"> - </span><span class="light-purple">1992</span>,</div>
+                        <div><span class="default">hardSkills</span>: <span class="purple">{{'['}}</span>'<span class="yellow">TypeScript</span>', '<span class="yellow">Angular</span>', '<span class="yellow">Bootstrap</span>'<span class="purple">{{']'}}</span>,</div>
+                        <div><span class="default">softSkills</span>: <span class="purple">{{'['}}</span>'<span class="yellow">Problem Solver</span>', '<span class="yellow">Team Player</span>'<span class="purple">{{']'}}</span>,</div>
+                        <div><span class="default">organisedPerson</span>: <span class="light-purple">true</span>,</div>
+                        <div><span class="default">interests</span>: <span class="purple">{{'{'}}</span></div>
+                    </div>
+                    <div class="ms-4 border-left window-grey">
+                        <div class="code-font-default ms-4"><span class="default">big</span>: <span class="blue">{{'['}}</span>'<span class="yellow">Vinyl Records</span>', '<span class="yellow">Space Industry</span>'<span class="blue">{{']'}}</span>,</div>
+                        <div class="code-font-default ms-4"><span class="default">bigger</span>: <span class="blue">[</span>'<span class="yellow">Nice People</span>', '<span class="yellow">Deep Conversations</span>'<span class="blue">{{']'}}</span></div>
+                    </div>
+                    <div><span class="ms-4 purple">{{'}'}}</span></div>
+                </div>
+                <div class="code-font-default"><span class="yellow">{{'}'}}</span>;</div>
+            </div>
+        }
+        <!-- * CODE OFF -->
+        @else {
+            <div style="margin-left: 17px;">
+                <div class="comment-grey">const me: Developer = {{'{'}}</div>
+                <div class="window-details comment-grey">
+                    <div class="ms-4">
+                        <div>name: 'Nick Polizogopoulos',</div>
+                        <div>age: () => new Date().getFullYear() - 1992,</div>
+                        <div>hardSkills: ['TypeScript', 'Angular', 'Bootstrap'],</div>
+                        <div>softSkills: ['Problem Solver', 'Team Player'],</div>
+                        <div>organisedPerson: true,</div>
+                        <div>interests: {{'{'}}</div>
+                    </div>
+                    <div class="ms-4">
+                        <div class="ms-4">big: ['Vinyl Records', 'Space Industry'],</div>
+                        <div class="ms-4">bigger: ['Nice People', 'Deep Conversations']</div>
+                    </div>
+                    <div class="ms-4">{{'}'}}</div>
+                    <div>{{'}'}};</div>
+                </div>
+            </div>
+        }
+    </section>
+</section>

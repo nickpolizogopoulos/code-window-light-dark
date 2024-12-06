@@ -1,0 +1,11 @@
+@use '../../styles.scss' as *;
+
+:host {
+    @extend %flex-row-center;
+    gap: 200px;
+    margin: 50px 0;
+    @media screen and (max-width: 550px) {
+        flex-direction: column;
+        gap: 45px;
+    }
+}

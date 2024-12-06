@@ -1,0 +1,16 @@
+@use '../../styles.scss' as *;
+
+:host {
+    @extend %flex-row-center;
+    gap: 80px;
+    padding: 20px 0;
+    border-radius: 14px;
+    backdrop-filter: $blur;
+    -webkit-backdrop-filter: $blur;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    user-select: none;
+    @media screen and (max-width: 970px) {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
