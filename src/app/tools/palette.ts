@@ -1,8 +1,10 @@
 
 
 export type Palette = {
-    bgWhite: string;
+    bgLight: string;
     bgBlack: string;
     fontWhite: string;
     fontBlack: string;
+    commentedWhite: string;
+    commentedBlack: string;
 };

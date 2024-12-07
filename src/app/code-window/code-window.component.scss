@@ -1,30 +1,58 @@
 @use '../../styles.scss' as *;
 
 :host {
-    font-family: monospace;
     font-size: 1rem;
     display: block;
-    min-width: 600px;
+    min-width: 800px;
     height: auto;
+    transition: none !important;
+    @media screen and (max-width: 900px) {
+        min-width: 100%;
+    }
+}
+
+:host(.window-styling) {
     border-radius: 7px;
     backdrop-filter: $blur;
     -webkit-backdrop-filter: $blur;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    
-    @media screen and (max-width: 700px) {
-        min-width: 100%;
+}
+
+.copy-icon {
+    display: flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: none;
+    svg {
+        cursor: pointer;
+    }
+    span {
+        font-size: 14px;
+        user-select: none;
+        cursor: default;
+    }
+}
+
+.cross-icon {
+    color: rgb(191, 191, 191);
+    margin: 7px 7.5px;
+    cursor: pointer;
+    border-radius: 50px;
+    &:hover {
+        color: rgb(230, 230, 230);
     }
 }
 
 .topbar {
     border-radius: 7px 7px 0 0;
-    // background-color: rgba(219, 219, 219, 0.55);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
     height: 35px;
+    box-shadow: 0 7px 25px -5px rgba(0, 0, 0, 0.642);
     
     ul {
         @extend %flex-row-center;
@@ -33,17 +61,32 @@
         list-style-type: none;
         gap: 9px;
     }
+
+    .window-name {
+        position: fixed;
+        margin-left: 40%;
+        color: rgb(108, 108, 108);
+        font-style: italic;
+        font-size: 14px;
+        user-select: none;
+        @media screen and (max-width: 800px) {
+            margin-left: 37%;
+        }
+        @media screen and (max-width: 600px) {
+            display: none;
+        }
+    }
     
     .window-btn {
         height: 14px;
         width: 14px;
         border-radius: 50%;
         display: inline-block;
+        cursor: pointer;
     }
     
     .red-btn {
         background-color: #f65656;
-        cursor: pointer;
     }
     
     .yellow-btn {
@@ -53,4 +96,128 @@
     .green-btn {
         background-color: rgb(91, 179, 91);
     }
+
+    .flex-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+.code-link {
+    all: unset;
+    &:hover {
+        cursor: pointer !important;
+        all: unset;
+    }
+}
+
+//* CODE ============================
+.code-box {
+    font-family: $code;
+    @extend .flex-row;
+    margin: 15px 5px;
+    gap: 0 10px;
+}
+.slashes-column,
+.numbers-column {
+    user-select: none;
+    @media screen and (max-width: 370px) {
+        display: none;
+    }
+    ._15 { @media screen and (min-width: 820px) {display: none;} }
+    ._16 { @media screen and (min-width: 649px) {display: none;} }
+    ._17 { @media screen and (min-width: 639px) {display: none;} }
+    ._18 { @media screen and (min-width: 635px) {display: none;} }
+    ._19 { @media screen and (min-width: 620px) {display: none;} }
+    ._20 { @media screen and (min-width: 597px) {display: none;} }
+    ._21 { @media screen and (min-width: 591px) {display: none;} }
+    ._22 { @media screen and (min-width: 533px) {display: none;} }
+}
+
+.logic-box {
+    margin-left: 10px;
+}
+
+.commented-code {
+    font-style: italic;
+}
+
+//* COLOURS =====================
+
+.code-font-default {
+    color: rgb(230, 230, 230);
+}
+
+.light-blue {
+    color: rgb(70, 206, 255);
+}
+
+.pink {
+    color: rgb(255, 135, 169);
+}
+
+.yellow {
+    color: rgb(255, 236, 112);
+}
+
+.green {
+    color: rgb(103, 185, 135);
+}
+
+.purple {
+    color: rgb(216, 94, 216);
+}
+
+.light-purple {
+    color: rgb(192, 144, 249);
+}
+
+.blue {
+    color: rgb(73, 128, 255);
+}
+
+
+
+//* κλεψιμέ switch =====================================================================
+.switch {
+    font-size: 10px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    &::before {
+        position: absolute;
+        content: "";
+        height: 1.4em;
+        width: 0.2em;
+        border-radius: 0px;
+        left: 0.3em;
+        bottom: 0.3em;
+        background-color: rgb(228, 228, 228);
+        transition: .2s;
+    }
+}
+
+input:checked + .slider {
+    box-shadow: inset 1px 2px 10px rgb(43, 43, 43);
+}
+input:checked + .slider:before {
+    transform: translateX(2.8em) rotate(360deg);
 }
