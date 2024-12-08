@@ -15,7 +15,7 @@ export class ModeService {
     mode = signal<boolean>(false);
 
     private palette: Palette = {
-        bgLight: 'rgba(255, 255, 255, 0.4)',
+        bgLight: 'rgba(255, 255, 255, 0.5)',
         bgBlack: 'rgba(0, 0, 0, 0.4)',
         fontWhite: 'rgb(220, 220, 220)',
         fontBlack: 'rgb(20, 20, 20)',
