@@ -47,7 +47,6 @@ import {
       }
     }
 
-  
   `,
   host: {
     '[style.background-color]': 'modeService.background()',
@@ -64,7 +63,7 @@ export class NavbarComponent {
   modeService = inject(ModeService);
 
   linksHidden = signal<boolean>(false);
-  windowWidth = signal<number>(window.innerWidth);
+  private windowWidth = signal<number>(window.innerWidth);
 
   onMenuToggle(): void {
     this.linksHidden.set(!this.linksHidden());

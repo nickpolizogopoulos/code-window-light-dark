@@ -7,9 +7,8 @@
 }
 
 $blur: blur(14px);
-$font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-"Segoe UI Symbol";
+$font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $code: 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", monospace;
 
 .flex-row-center {
@@ -73,6 +72,6 @@ a {
     cursor: crosshair;
     text-decoration: none;
     &:hover {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     }   
 }

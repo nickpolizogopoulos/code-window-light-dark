@@ -9,6 +9,7 @@
     -webkit-backdrop-filter: $blur;
     border: 1px solid rgba(255, 255, 255, 0.2);
     user-select: none;
+
     @media screen and (max-width: 970px) {
         flex-direction: column;
         gap: 20px;
@@ -19,15 +20,17 @@ section {
     @extend .flex-row;
     align-items: center;
     gap: 7px;
-    @media screen and (min-width: 970px) {
+
+    @media screen and (min-width: 971px) {
         display: none;
     }
+    
     label {
         cursor: pointer;
     }
 }
 
-//* κλεψιμέ toggle =====================================================================
+//* toggle =====================================================================
 .icon-menu {
     --gap: 5px;
     --height-bar: 2.5px;

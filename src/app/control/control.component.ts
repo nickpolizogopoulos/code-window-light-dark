@@ -1,4 +1,7 @@
-import { Component, inject, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  inject
+} from '@angular/core';
 
 import { ModeService } from '../tools/mode.service';
 

@@ -21,11 +21,13 @@ import { CodeWindowComponent } from './code-window/code-window.component';
     </main>
 
   `,
-  // styleUrl: './app.component.scss'
   styles: `
   
     main {
-      display: flex; flex-direction: column; justify-content: center; align-items: center; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
     }
   
   `
