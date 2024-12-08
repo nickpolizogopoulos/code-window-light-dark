@@ -1,5 +1,5 @@
 * {
-    transition: all .1s ease-in-out;
+    transition: all .05s ease-in-out;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -12,7 +12,7 @@ Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
 "Segoe UI Symbol";
 $code: 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", monospace;
 
-%flex-row-center {
+.flex-row-center {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,8 +29,11 @@ $code: 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Cour
     flex-direction: column;
 }
 
-.pl {
+.padding-left {
     padding-left: 1.5rem;
+}
+.pl {
+    @extend .padding-left;
 }
 
 body {
@@ -48,7 +51,7 @@ body {
 }
 
 button {
-    @extend %flex-row-center;
+    @extend .flex-row-center;
     gap: 7px;
     border-radius: 7px;
     padding: 7px 21px;
@@ -63,7 +66,7 @@ button {
 }
 
 a {
-    @extend %flex-row-center;
+    @extend .flex-row-center;
     gap: 10px;
     padding: 7px 21px;
     border-radius: 7px;

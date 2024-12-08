@@ -55,7 +55,7 @@
     box-shadow: 0 7px 25px -5px rgba(0, 0, 0, 0.642);
     
     ul {
-        @extend %flex-row-center;
+        @extend .flex-row-center;
         margin: 0;
         padding: 0;
         list-style-type: none;
@@ -133,6 +133,28 @@
     ._20 { @media screen and (min-width: 597px) {display: none;} }
     ._21 { @media screen and (min-width: 591px) {display: none;} }
     ._22 { @media screen and (min-width: 533px) {display: none;} }
+
+    @media screen and (max-width: 440px) {
+        ._23to25 {
+          display: none;
+        }
+    }
+    @media screen and (min-width: 441px) and (max-width: 445px) {
+        ._23to25 {
+            display: block;
+        }
+    }
+    @media screen and (min-width: 446px) {
+        ._23to25 {
+            display: none;
+        }
+    }
+}
+
+.slashes-column {
+    @media screen and (max-width: 696px) {
+        display: none;
+    }
 }
 
 .logic-box {
@@ -142,42 +164,6 @@
 .commented-code {
     font-style: italic;
 }
-
-//* COLOURS =====================
-
-.code-font-default {
-    color: rgb(230, 230, 230);
-}
-
-.light-blue {
-    color: rgb(70, 206, 255);
-}
-
-.pink {
-    color: rgb(255, 135, 169);
-}
-
-.yellow {
-    color: rgb(255, 236, 112);
-}
-
-.green {
-    color: rgb(103, 185, 135);
-}
-
-.purple {
-    color: rgb(216, 94, 216);
-}
-
-.light-purple {
-    color: rgb(192, 144, 249);
-}
-
-.blue {
-    color: rgb(73, 128, 255);
-}
-
-
 
 //* κλεψιμέ switch =====================================================================
 .switch {
@@ -192,7 +178,6 @@
         height: 0;
     }
 }
-
 .slider {
     position: absolute;
     cursor: pointer;
@@ -214,7 +199,6 @@
         transition: .2s;
     }
 }
-
 input:checked + .slider {
     box-shadow: inset 1px 2px 10px rgb(43, 43, 43);
 }

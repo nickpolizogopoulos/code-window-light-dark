@@ -7,8 +7,8 @@
     <section class="topbar">
         <ul>
             <li (click)="reverseBoolMember('windowOpen')" class="window-btn red-btn"></li>
-            <li (click)="onMinimise()" class="window-btn yellow-btn"></li>
-            <li (click)="onFullWidth()" class="window-btn green-btn"></li>
+            <li (click)="onCodeWindowMinimise()" class="window-btn yellow-btn"></li>
+            <li (click)="onCodeWindowFullWidth()" class="window-btn green-btn"></li>
         </ul>
         <span [style.color]="modeService.mode() ? modeService.commented() : 'rgb(108, 108, 108)'" class="window-name">the-code-window.ts</span>
         <div class="flex-row">
@@ -28,11 +28,7 @@
             </label>
         </div>
     </section>
-    
-    <!-- *CODE AREA  -->
     <section class="code-box">
-
-        <!-- *COLUMN OF NUMBERS -->
         <div class="numbers-column" [style.color]="modeService.commented()">
             <div class="flex-col">
                 @for (number of [].constructor(14); track $index) {
@@ -41,70 +37,39 @@
                 @for (_ of [].constructor(8); track $index) {
                     <span class="_{{ $index + 15 }}">{{$index + 15}}</span>
                 }
-                <!-- <span class="_15">15</span>
-                <span class="sixteen">16</span>
-                <span class="seventeen">17</span>
-                <span class="eighteen">18</span>
-                <span class="nineteen">19</span>
-                <span class="twenty">20</span>
-                <span class="twentyOne">21</span>
-                <span class="twentyTwo">22</span> -->
-
-                <!-- <div class="flex-col">
-                    @for (number of [].constructor(3); track $index) {
-                        <span>{{$index + 12}}</span>
-                    }
-                    @if (true) { <span>15 16</span> }
-                    @else { <span>15 16</span> }
-                </div> -->
+                @for (_ of [].constructor(3); track $index) {
+                    <span class="_23to25">{{$index + 23}}</span>
+                }
             </div>
         </div>
-
-        <!-- *COLUMN OF COMMENTED CODE SLASHES  -->
-        @if (switch()) {
-            <div class="flex-col" [style.color]="modeService.commented()">
-                <div class="flex-col">
+        <div class="slashes-column">
+            @if (switch()) {
+                <div class="flex-col" [style.color]="modeService.commented()">
                     @for (number of [].constructor(15); track $index) {
-                        <div class="slash">//</div>
+                        <span class="_{{ $index + 1 }}">//</span>
                     }
-                    <!-- <div class="flex-col">
-                        @for (number of [].constructor(3); track $index) {
-                            <span>//</span>
-                        }
-                        @if (true) { <span class="">// //</span> }
-                        @else { <span class="">// //</span> }
-                    </div> -->
-                </div> 
-            </div>
-        }
-        
-        <!-- *CODE -->
-        <section class="logic-box">
-            <!-- *CODE ON -->
-            @if (!switch()) {
-                <div><i [style.color]="theme.const()">const </i><span class="code-font-default">me</span><span class="pink">:</span><span class="green"> Developer</span> <span class="pink"> = </span> <span class="yellow">{{'{'}}</span></div>
-                <div class="border-left window-details">
-                    <div class="pl code-font-default" [style.border-left]="!switch() ? '1px solid rgba(255, 255, 255, 0.2)' : ''">
-                        <div><span class="default">name</span>: '<span class="yellow">Nick Polizogopoulos</span>',</div>
-                        <div><span class="green">age</span>:<span class="purple"> ()</span><span class="pink"> => new </span><span class="green">Date</span><span class="purple">()</span>.<span class="green">getFullYear</span><span class="purple">()</span><span class="pink"> - </span><span class="light-purple">1992</span>,</div>
-                        <div><span class="default">hardSkills</span>: <span class="purple">{{'['}}</span>'<span class="yellow">TypeScript</span>', '<span class="yellow">Angular</span>', '<span class="yellow">React</span>', '<span class="yellow">Bootstrap</span>', '<span class="yellow">Git</span>'<span class="purple">{{']'}}</span>,</div>
-                        <div><span class="default">softSkills</span>: <span class="purple">{{'['}}</span>'<span class="yellow">Problem Solver</span>', '<span class="yellow">Team Player</span>'<span class="purple">{{']'}}</span>,</div>
-                    <div><span class="default">organisedPerson</span>: <span class="light-purple">true</span>,</div>
-                    <div><span class="default">portfolio</span>: '<span class="yellow"><a class="code-link" href="https://nick-polizogopoulos.web.app" target="_blank">https://nick-polizogopoulos.web.app</a></span>',</div>
-                    <div><span class="default">gitHub</span>: '<span class="yellow"><a class="code-link" href="https://github.com/nickpolizogopoulos" target="_blank">https://github.com/nickpolizogopoulos</a></span>',</div>
-                    <div><span class="default">willingnessToLearn</span>: <span class="light-purple">true</span>,</div>
-                    <div><span class="default">interests</span>: <span class="purple">{{'{'}}</span></div>
                 </div>
-                <div class="pl" [style.border-left]="!switch() ? '1px solid rgba(255, 255, 255, 0.2)' : ''">
-                    <div [style.border-left]="!switch() ? '1px solid rgba(255, 255, 255, 0.2)' : ''" class="code-font-default pl"><span class="default">big</span>: <span class="blue">{{'['}}</span>'<span class="yellow">Vinyl Records</span>', '<span class="yellow">Space Industry</span>'<span class="blue">{{']'}}</span>,</div>
-                    <div [style.border-left]="!switch() ? '1px solid rgba(255, 255, 255, 0.2)' : ''" class="code-font-default pl"><span class="default">bigger</span>: <span class="blue">[</span>'<span class="yellow">Nice People</span>', '<span class="yellow">Deep Conversations</span>'<span class="blue">{{']'}}</span></div>
-                </div>
-                <div [style.border-left]="!switch() ? '1px solid rgba(255, 255, 255, 0.2)' : ''"><span class="pl purple">{{'}'}}</span></div>
-                <div class="code-font-default"><span class="yellow">{{'}'}}</span>;</div>
-            </div>
             }
-
-            <!-- * CODE OFF -->
+        </div>
+        <section class="logic-box" [style.font-weight]="modeService.mode() ? 'bold' : ''">
+            @if (!switch()) {
+                <div><i [style.color]="theme.const()">const </i><span [style.color]="theme.default()">me</span><span [style.color]="theme.symbol()">:</span><span [style.color]="theme.method()"> Developer</span> <span [style.color]="theme.symbol()"> = </span> <span [style.color]="theme.brace()">{{'{'}}</span></div>
+                <div class="pl" [style.color]="modeService.commented()" [style.border-left]="!switch() ? '1px solid rgba(255, 255, 255, 0.2)' : ''">
+                    <div><span [style.color]="theme.default()">name</span>: '<span [style.color]="theme.string()">Nick Polizogopoulos</span>',</div>
+                    <div><span [style.color]="theme.method()">age</span>:<span [style.color]="theme.braceTwo()"> ()</span><span [style.color]="theme.symbol()"> => new </span><span [style.color]="theme.method()">Date</span><span [style.color]="theme.braceTwo()">()</span>.<span [style.color]="theme.method()">getFullYear</span><span [style.color]="theme.braceTwo()">()</span><span [style.color]="theme.symbol()"> - </span><span [style.color]="theme.numBool()">1992</span>,</div>
+                    <div><span [style.color]="theme.default()">hardSkills</span>: <span [style.color]="theme.braceTwo()">{{'['}}</span>'<span [style.color]="theme.string()">TypeScript</span>', '<span [style.color]="theme.string()">Angular</span>', '<span [style.color]="theme.string()">React</span>', '<span [style.color]="theme.string()">Bootstrap</span>', '<span [style.color]="theme.string()">Git</span>'<span [style.color]="theme.braceTwo()">{{']'}}</span>,</div>
+                    <div><span [style.color]="theme.default()">softSkills</span>: <span [style.color]="theme.braceTwo()">{{'['}}</span>'<span [style.color]="theme.string()">Problem Solver</span>', '<span [style.color]="theme.string()">Team Player</span>'<span [style.color]="theme.braceTwo()">{{']'}}</span>,</div>
+                    <div><span [style.color]="theme.default()">organisedPerson</span>: <span [style.color]="theme.numBool()">true</span>,</div>
+                    <div><span [style.color]="theme.default()">portfolio</span>: '<a [style.color]="theme.string()" class="code-link" href="https://nick-polizogopoulos.web.app" target="_blank">https://nick-polizogopoulos.web.app</a>',</div>
+                    <div><span [style.color]="theme.default()">gitHub</span>: '<a [style.color]="theme.string()" class="code-link" href="https://github.com/nickpolizogopoulos" target="_blank">https://github.com/nickpolizogopoulos</a>',</div>
+                    <div><span [style.color]="theme.default()">willingnessToLearn</span>: <span [style.color]="theme.numBool()">true</span>,</div>
+                    <div><span [style.color]="theme.default()">interests</span>: <span [style.color]="theme.braceTwo()">{{'{'}}</span></div>
+                    <div [style.border-left]="!switch() ? '1px solid rgba(255, 255, 255, 0.2)' : ''" class="pl"><span  [style.color]="theme.default()">big</span>: <span [style.color]="theme.braceThree()">{{'['}}</span>'<span [style.color]="theme.string()">Vinyl Records</span>', '<span [style.color]="theme.string()">Space Industry</span>'<span [style.color]="theme.braceThree()">{{']'}}</span>,</div>
+                    <div [style.border-left]="!switch() ? '1px solid rgba(255, 255, 255, 0.2)' : ''" class="pl"><span  [style.color]="theme.default()">bigger</span>: <span [style.color]="theme.braceThree()">[</span>'<span [style.color]="theme.string()">Nice People</span>', '<span [style.color]="theme.string()">Deep Conversations</span>'<span [style.color]="theme.braceThree()">{{']'}}</span></div>
+                    <span [style.color]="theme.braceTwo()">{{'}'}}</span>
+                </div>
+                <div [style.color]="modeService.commented()"><span [style.color]="theme.brace()">{{'}'}}</span>;</div>
+            }
             @else {
                 <div [style.color]="modeService.commented()" class="commented-code">
                     <div>const me: Developer = {{'{'}}</div>
@@ -122,9 +87,9 @@
                             <div>big: ['Vinyl Records', 'Space Industry'],</div>
                             <div>bigger: ['Nice People', 'Deep Conversations']</div>
                         </div>
-                        <div>{{'}'}}</div>
+                        {{'}'}}
                     </div>
-                    <div>{{'}'}};</div>
+                    {{'}'}};
                 </div>
             }
         </section>

@@ -2,4 +2,4 @@
 export type BoolMember = 
   'windowOpen'
 | 'switch'
-| 'fullWidth';
+| 'codeWindowFullWidth';

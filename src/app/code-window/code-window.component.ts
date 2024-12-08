@@ -16,42 +16,34 @@ import { BoolMember } from './member-type';
   host: {
     '[style.background-color]': "windowOpen() ? modeService.background() : ''",
     '[class.window-styling]': 'windowOpen()',
-    '[style.min-width]': "fullWidth() ? '100%' : ''"
+    '[style.min-width]': "codeWindowFullWidth() ? '100%' : ''"
   }
 })
 export class CodeWindowComponent {
 
   modeService = inject(ModeService);
-
-//   theme = {
-//     string: this.modeService.mode() ? 'black' : 'white',
-//     // method: this.mode() ? '' : '',
-//     // default: this.mode() ? '' : '',
-//     // this: this.mode() ? '' : '',
-//     // that: this.mode() ? '' : '',
-// };
-
+  
   switch = signal<boolean>(false);
   windowOpen = signal<boolean>(true);
-  fullWidth = signal<boolean>(false);
+  codeWindowFullWidth = signal<boolean>(false);
+  copied = signal<boolean>(false);
 
   reverseBoolMember( member: BoolMember ): void {
     this[member].update( m => !m );
   }
 
-  onFullWidth(): void {
-    this.fullWidth.set(true);
+  onCodeWindowFullWidth(): void {
+    this.codeWindowFullWidth.set(true);
   }
   
-  onMinimise(): void {
-    this.fullWidth.set(false);
+  onCodeWindowMinimise(): void {
+    this.codeWindowFullWidth.set(false);
   }
 
   onToggle(): void {
     this.switch.update( state => !state );
   }
 
-  copied = signal<boolean>(false);
   onCopy(): void {
     this.copied.set(true);
     navigator.clipboard.writeText( this.code );
@@ -61,17 +53,38 @@ export class CodeWindowComponent {
     );
   } 
 
-  private hardSkills: string[] = [
-    'TypeScript',
-    'Angular',
-    'React',
-    'Bootstrap',
-    'SQL',
-    'Git'
-  ];
+  private colourTheme = {
+    default: computed(() =>
+      this.modeService.mode() ? 'rgb(56, 56, 56)' : 'rgb(230, 230, 230)'
+    ),
+    const: computed(() =>
+      this.modeService.mode() ? 'rgb(76, 39, 105)' : 'rgb(70, 206, 255)'
+    ),
+    symbol: computed(() =>
+      this.modeService.mode() ? 'rgb(34, 45, 102)' : 'rgb(255, 135, 169)'
+    ),
+    string: computed(() =>
+      this.modeService.mode() ? 'rgb(27, 64, 122)' : 'rgb(255, 236, 112)'
+    ),
+    method: computed(() =>
+      this.modeService.mode() ? 'rgb(76, 39, 105)' : 'rgb(103, 185, 135)'
+    ),
+    numBool: computed(() =>
+      this.modeService.mode() ? 'rgb(79, 0, 0)' : 'rgb(192, 144, 249)'
+    ),
+    brace: computed(() =>
+      this.modeService.mode() ? 'black' : 'rgb(255, 236, 112)'
+    ),
+    braceTwo: computed(() =>
+      this.modeService.mode() ? 'black' : 'rgb(216, 94, 216)'
+    ),
+    braceThree: computed(() =>
+      this.modeService.mode() ? 'black' : 'rgb(73, 128, 255)'
+    ),
+  };
 
-  get allHardSkills(): string[] {
-    return [...this.hardSkills];
+  get theme() {
+    return { ...this.colourTheme };
   }
 
   private code: string = `
@@ -89,8 +102,5 @@ export class CodeWindowComponent {
       }
     };
   `;
-
-  theme = {
-    const: computed(() => this.modeService.mode() ? 'orangered' : 'rgb(70, 206, 255)' )
-  };
+  
 }
