@@ -1,5 +1,8 @@
 # CodeWindowLightDark
 
+I decided to make the code window component from my website as a standalone  
+project and add a feature to switch between dark and light modes.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
 
 ## The Project
