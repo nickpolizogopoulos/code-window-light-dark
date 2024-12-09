@@ -2,10 +2,11 @@
 
 :host {
     font-size: 1rem;
-    display: block;
     min-width: 800px;
+    max-width: 100%;
     height: auto;
     transition: none !important;
+
     @media screen and (max-width: 900px) {
         min-width: 100%;
     }
@@ -29,7 +30,6 @@
     }
     span {
         font-size: 14px;
-        user-select: none;
         cursor: default;
     }
 }
@@ -68,7 +68,6 @@
         color: rgb(108, 108, 108);
         font-style: italic;
         font-size: 14px;
-        user-select: none;
         @media screen and (max-width: 800px) {
             margin-left: 37%;
         }
@@ -121,7 +120,6 @@
 }
 .slashes-column,
 .numbers-column {
-    user-select: none;
     @media screen and (max-width: 370px) {
         display: none;
     }

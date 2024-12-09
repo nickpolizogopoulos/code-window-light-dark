@@ -27,6 +27,7 @@ import {
       <label for="check-icon" (click)="onMenuToggle()" [style.color]="modeService.mode() ? modeService.font() : modeService.font()">Menu</label>
     </section>
     @if (!linksHidden()) {
+      <hr>
       @for (item of navLinks; track $index) {
         <a 
           style="color: {{ modeService.font() }};"
@@ -74,7 +75,7 @@ export class NavbarComponent {
   }
 
   private updateDrawerState(): void {
-    const isMobile = this.windowWidth() < 970;
+    const isMobile = this.windowWidth() < 971;
     this.linksHidden.set(isMobile);
   }
   

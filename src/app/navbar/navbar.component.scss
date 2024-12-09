@@ -8,11 +8,18 @@
     backdrop-filter: $blur;
     -webkit-backdrop-filter: $blur;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    user-select: none;
 
     @media screen and (max-width: 970px) {
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+hr {
+    width: 80%;
+    border: .1px solid;
+    @media screen and (min-width: 971px) {
+        display: none;
     }
 }
 
@@ -21,16 +28,16 @@ section {
     align-items: center;
     gap: 7px;
 
-    @media screen and (min-width: 971px) {
-        display: none;
-    }
-    
     label {
         cursor: pointer;
     }
+
+    @media screen and (min-width: 971px) {
+        display: none;
+    }
 }
 
-//* toggle =====================================================================
+//* toggle ================================
 .icon-menu {
     --gap: 5px;
     --height-bar: 2.5px;
@@ -85,4 +92,4 @@ section {
     --scale-bar: 0;
     --rotate-bar-one: 45deg;
     --rotate-bar-three: -45deg;
-}  
+}
